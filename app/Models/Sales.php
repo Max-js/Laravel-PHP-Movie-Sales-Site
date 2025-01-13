@@ -14,7 +14,6 @@ class Sales extends Model
             ->where('s.sales_date', '=', $salesDate)
             ->groupBy('s.theater_id', 't.name', 's.sales_date')
             ->orderByDesc(DB::raw('SUM(s.total_sales)'))
-            ->limit(1)
             ->first();
 
             return($result);
